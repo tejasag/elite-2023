@@ -1,0 +1,156 @@
+:root {
+  --green: #465c46;
+  --light-green: #e1ece1;
+  --white: #ffffff;
+  --yellow: #ffcc00;
+  --gray: #d9d9d9;
+  --dark-gray: #6a6a6a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Poppins;
+}
+
+body {
+  background: var(--light-green);
+}
+
+h1 {
+  font-weight: 600;
+  font-style: normal;
+  font-size: 50px;
+  color: var(--green);
+}
+
+button {
+  cursor: pointer;
+}
+
+.logo {
+  font-weight: 700;
+  color: var(--white);
+  font-size: 30px;
+}
+
+.logo > .yellow {
+  color: var(--yellow);
+}
+
+.nav {
+  background-color: var(--green);
+  padding: 1rem 10rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav > .search {
+  background: var(--gray);
+  border-radius: 10px;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  width: 300px;
+}
+
+.nav > .search::placeholder {
+  color: var(--green);
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.btn {
+  padding: 0.5rem 1.5rem;
+  background: none;
+  border: 2px solid var(--gray);
+  border-radius: 10px;
+  margin: 5px;
+  font-size: 15px;
+  color: var(--white);
+  font-weight: 500;
+}
+
+.btn-filled {
+  background-color: var(--gray);
+  color: var(--green);
+}
+
+.hero {
+  padding: 5rem 8rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.hero > .details {
+  max-width: 50vw;
+  font-weight: 300;
+  color: var(--green);
+  font-size: 18px;
+  font-weight: 300;
+  margin: 10px;
+}
+
+.btn-yellow {
+  border: none;
+  background-color: var(--yellow);
+  color: black;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0.5rem 5rem;
+  margin-top: 20px;
+}
+
+.section {
+  padding-top: 5rem;
+  padding-left: 8rem;
+  padding-right: 8rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.section > .header {
+  margin: 10px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.card {
+  margin-top: 10px;
+  background-color: var(--white);
+  width: fit-content;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.card > img {
+  height: 220px;
+}
+
+.card > .info {
+  padding: 1rem;
+  text-align: center;
+}
+
+.info-header {
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.info-subheader {
+  color: var(--dark-gray);
+}
+
+.footer {
+  background-color: var(--green);
+  padding: 1rem;
+  margin-top: 3rem;
+  color: white;
+  text-align: center;
+}

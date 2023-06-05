@@ -2,7 +2,7 @@
 
 ## Mockup tasks:
 
-- CookDom: [Click Here]()
-- Learnio: [Click Here]()
+- CookDom: [Click Here](https://tejasag-cookdom.netlify.app)
+- Learnio (Reactive): [Click Here](https://tejasag-learnio.netlify.app)
 
 

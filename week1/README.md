@@ -1,4 +1,4 @@
-# Week 1 Submissions
+# week 1 submissions
 
 ## Mockup tasks:
 

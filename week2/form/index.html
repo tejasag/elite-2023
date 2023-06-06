@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form</title>
+    <style>
+      form {
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+      }
+
+      form * {
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="form">
+      <input type="text" name="Name" id="name" placeholder="Name" required />
+      <input
+        type="email"
+        name="Email"
+        id="email"
+        placeholder="Email"
+        required
+      />
+      <input
+        type="date"
+        name="dob"
+        id="dob"
+        placeholder="Date of birth"
+        required
+      />
+      <textarea
+        name="about"
+        id="about"
+        cols="30"
+        rows="10"
+        placeholder="About yourself"
+        required
+      ></textarea>
+      <textarea
+        name="achievements"
+        id="achievements"
+        cols="30"
+        rows="10"
+        placeholder="Achievements"
+      ></textarea>
+
+      <label for="grade">Grade</label>
+      <select name="grade" id="grade" required>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+      </select>
+
+      <div>
+        <label for="notif">Recieve Notifications?</label>
+        <input type="radio" id="notif" name="notif" />
+      </div>
+      <input type="submit" value="Submit" />
+    </form>
+    <script src="script.js"></script>
+  </body>
+</html>

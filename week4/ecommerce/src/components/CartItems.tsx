@@ -5,7 +5,7 @@ import Link from "next/link";
 import Product from "@/components/Product";
 
 const getData = async () => {
-  let res = await fetch("http://localhost:3000/api", {
+  let res = await fetch("https://exunkart.vercel.app/api/", {
     cache: "no-store",
   });
 

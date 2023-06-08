@@ -21,7 +21,7 @@ export default async function Products() {
     <>
       <SimpleGrid columns={[1, 2, 3]} spacing="20px">
         {data.map((x: any, index: number) => (
-          <Link href={`/products/${x.id}`}>
+          <Link key={index} href={`/products/${x.id}`}>
             <Product
               key={index}
               name={x.title}

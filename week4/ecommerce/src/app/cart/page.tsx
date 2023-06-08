@@ -1,15 +1,21 @@
 "use client";
 
-const getData = async () => {
-  let res = await fetch(`/api`, {
-    method: "GET",
-  });
-  if (!res.ok) throw new Error("error fetching details");
-  return res.json();
-};
+import ClearCartButton from "@/components/ClearCartButton";
+import CartItems from "@/components/CartItems";
+import { Heading, Flex } from "@chakra-ui/react";
 
 export default async function Cart() {
-  let data = await getData();
-
-  return <>{data.map((x: any) => x)}</>;
+  return (
+    <>
+      <Flex direction="column" alignItems={"center"} justifyContent={"center"}>
+        <Flex direction={"row"} alignItems={"center"}>
+          <Heading m={"2"} textAlign={"center"}>
+            Cart
+          </Heading>
+          <ClearCartButton />
+        </Flex>
+        <CartItems />
+      </Flex>
+    </>
+  );
 }

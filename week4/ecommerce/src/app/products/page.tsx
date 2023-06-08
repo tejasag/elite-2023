@@ -5,7 +5,7 @@ import { SimpleGrid } from "@chakra-ui/react";
 import Link from "next/link";
 
 const getData = async () => {
-  let res = await fetch("https://fakestoreapi.com/products?limit=5");
+  let res = await fetch("https://fakestoreapi.com/products?limit=100");
 
   if (!res.ok) {
     throw new Error("error fetching data");

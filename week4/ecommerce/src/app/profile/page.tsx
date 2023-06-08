@@ -2,6 +2,7 @@
 
 import {
   Box,
+  chakra,
   Container,
   Stack,
   Text,
@@ -12,27 +13,19 @@ import {
   Heading,
   SimpleGrid,
   StackDivider,
-  // useColorModeValue,
+  VisuallyHidden,
   List,
   ListItem,
 } from "@chakra-ui/react";
-import AddToCart from "@/components/AddToCart";
 
-const getData = async (id: string) => {
-  let res = await fetch("https://fakestoreapi.com/products/" + id);
-
-  if (!res.ok) throw new Error("error fetching data");
-
-  return res.json();
+const getData = async () => {
+  let data = await fetch("https://jsonplaceholder.typicode.com/users/1");
+  if (!data.ok) throw new Error("Error fetching profile");
+  return data.json();
 };
 
-export default async function ProductDetails({
-  params,
-}: {
-  params: { id: string };
-}) {
-  let id = params.id;
-  let data = await getData(id);
+export default async function Profile() {
+  let data = await getData();
 
   return (
     <Container maxW={"7xl"}>
@@ -41,17 +34,6 @@ export default async function ProductDetails({
         spacing={{ base: 8, md: 10 }}
         py={{ base: 18, md: 24 }}
       >
-        <Flex>
-          <Image
-            rounded={"md"}
-            alt={"product image"}
-            src={data.image}
-            fit={"cover"}
-            align={"center"}
-            w={"100%"}
-            h={{ base: "100%", sm: "400px", lg: "500px" }}
-          />
-        </Flex>
         <Stack spacing={{ base: 6, md: 10 }}>
           <Box as={"header"}>
             <Heading
@@ -59,14 +41,14 @@ export default async function ProductDetails({
               fontWeight={600}
               fontSize={{ base: "2xl", sm: "4xl", lg: "5xl" }}
             >
-              {data.title}
+              {data.name}
             </Heading>
             <Text
               // color={useColorModeValue("gray.900", "gray.400")}
               fontWeight={300}
               fontSize={"2xl"}
             >
-              ${data.price} USD
+              @{data.username}
             </Text>
           </Box>
 
@@ -85,7 +67,8 @@ export default async function ProductDetails({
                 fontSize={"2xl"}
                 fontWeight={"300"}
               >
-                {data.description}
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                diam nonumy eirmod tempor invidunt ut labore
               </Text>
               <Text fontSize={"lg"}>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
@@ -102,28 +85,59 @@ export default async function ProductDetails({
                 textTransform={"uppercase"}
                 mb={"4"}
               >
-                Features
+                About
               </Text>
 
               <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
                 <List spacing={2}>
-                  <ListItem>Chronograph</ListItem>
-                  <ListItem>Master Chronometer Certified</ListItem>{" "}
-                  <ListItem>Tachymeter</ListItem>
+                  <ListItem>Phone</ListItem>
+                  <ListItem>Website</ListItem> <ListItem>Company</ListItem>
                 </List>
                 <List spacing={2}>
-                  <ListItem>Anti‑magnetic</ListItem>
-                  <ListItem>Chronometer</ListItem>
-                  <ListItem>Small seconds</ListItem>
+                  <ListItem>{data.phone}</ListItem>
+                  <ListItem>{data.website}</ListItem>
+                  <ListItem>{data.company.name}</ListItem>
                 </List>
               </SimpleGrid>
             </Box>
-          </Stack>
+            <Box>
+              <Text
+                fontSize={{ base: "16px", lg: "18px" }}
+                // color={useColorModeValue("yellow.500", "yellow.300")}
+                fontWeight={"500"}
+                textTransform={"uppercase"}
+                mb={"4"}
+              >
+                Address
+              </Text>
 
-          <AddToCart id={id} />
-
-          <Stack direction="row" alignItems="center" justifyContent={"center"}>
-            <Text>2-3 business days delivery</Text>
+              <List spacing={2}>
+                <ListItem>
+                  <Text as={"span"} fontWeight={"bold"}>
+                    Street:
+                  </Text>{" "}
+                  {data.address.street}
+                </ListItem>
+                <ListItem>
+                  <Text as={"span"} fontWeight={"bold"}>
+                    Suite:
+                  </Text>{" "}
+                  {data.address.suite}
+                </ListItem>
+                <ListItem>
+                  <Text as={"span"} fontWeight={"bold"}>
+                    City:
+                  </Text>{" "}
+                  {data.address.city}
+                </ListItem>
+                <ListItem>
+                  <Text as={"span"} fontWeight={"bold"}>
+                    Zipcode:
+                  </Text>{" "}
+                  {data.address.zipcode}
+                </ListItem>
+              </List>
+            </Box>
           </Stack>
         </Stack>
       </SimpleGrid>

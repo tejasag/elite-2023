@@ -1,4 +1,4 @@
-import { Button } from "@chakra-ui/react";
+import { Button, useToast } from "@chakra-ui/react";
 
 const addToCart = async (id: string) => {
   let res = await fetch(`/api`, {
@@ -16,6 +16,8 @@ const addToCart = async (id: string) => {
 };
 
 export default function AddToCart({ id }: { id: string }) {
+  const toast = useToast();
+
   return (
     <Button
       rounded={"none"}
@@ -30,7 +32,16 @@ export default function AddToCart({ id }: { id: string }) {
         transform: "translateY(2px)",
         boxShadow: "lg",
       }}
-      onClick={() => addToCart(id)}
+      onClick={() => {
+        addToCart(id);
+        toast({
+          title: "Added to cart!",
+          description: "Product added to cart.",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+      }}
     >
       Add to cart
     </Button>

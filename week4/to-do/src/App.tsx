@@ -5,7 +5,17 @@ interface Todo {
   isDone: boolean;
 }
 
-function Card({ idx, todo, markTodo, removeTodo }) {
+function Card({
+  idx,
+  todo,
+  markTodo,
+  removeTodo,
+}: {
+  idx: any;
+  todo: any;
+  markTodo: any;
+  removeTodo: any;
+}) {
   return (
     <div className="flex flex-row bg-gray-100 p-1 m-2 w-60 justify-between rounded-md">
       <div className={`p-2  ${todo.isDone ? "line-through" : ""}`}>

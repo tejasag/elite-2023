@@ -21,7 +21,7 @@ function App() {
           type="color"
           id="color"
           value={color}
-          onInput={(e) => setColor(e.target.value)}
+          onInput={(e) => setColor((e.target as HTMLInputElement).value)}
         />
       </div>
     </>

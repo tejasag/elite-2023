@@ -55,7 +55,10 @@ app.put("/article/:id/update", async (req, res) => {
     });
   }
 
-  let article = await Article.findByIdAndUpdate(req.params.id, req.body, {
+  let body = req.body;
+  body.last_updated_at = Date.now();
+
+  let article = await Article.findByIdAndUpdate(req.params.id, body, {
     new: true,
   })
     .then((doc) => res.send("Successfully updated"))

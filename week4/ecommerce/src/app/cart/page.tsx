@@ -1,9 +1,15 @@
 "use client";
 
-import { cart } from "@/lib/data";
-
-console.log(cart);
+const getData = async () => {
+  let res = await fetch(`/api`, {
+    method: "GET",
+  });
+  if (!res.ok) throw new Error("error fetching details");
+  return res.json();
+};
 
 export default async function Cart() {
-  return <>{cart.map((x) => x)}</>;
+  let data = await getData();
+
+  return <>{data.map((x: any) => x)}</>;
 }

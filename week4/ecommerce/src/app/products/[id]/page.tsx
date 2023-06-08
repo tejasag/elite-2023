@@ -16,7 +16,21 @@ import {
   List,
   ListItem,
 } from "@chakra-ui/react";
-import { cart } from "@/lib/data";
+
+const addToCart = async (id: string) => {
+  let res = await fetch(`/api`, {
+    method: "POST",
+    body: JSON.stringify({
+      id,
+    }),
+  });
+
+  console.log(res);
+
+  if (!res.ok) throw new Error("error adding to cart");
+
+  return res.json();
+};
 
 const getData = async (id: string) => {
   let res = await fetch("https://fakestoreapi.com/products/" + id);
@@ -33,7 +47,6 @@ export default async function ProductDetails({
 }) {
   let id = params.id;
   let data = await getData(id);
-  console.log(data);
 
   return (
     <Container maxW={"7xl"}>
@@ -134,7 +147,7 @@ export default async function ProductDetails({
               transform: "translateY(2px)",
               boxShadow: "lg",
             }}
-            onClick={() => cart.push(id)}
+            onClick={() => addToCart(id)}
           >
             Add to cart
           </Button>
